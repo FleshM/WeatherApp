@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "wweather",
+    "site": "fweather",
     "public": "public",
     "ignore": [
       "firebase.json",

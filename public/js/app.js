@@ -16,17 +16,17 @@ const app = async () => {
 function addWidgets() {
     form.addEventListener("submit", e => {
         e.preventDefault();
-        const lat = latitude.value
-        const lon = longitude.value
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=f9866436c8b150e8433cff33f655382d&lang=ru&units=metric`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude.value}&lon=${longitude.value}&appid=f9866436c8b150e8433cff33f655382d&lang=ru&units=metric`)
             .then(response => response.json())
             .then(weather => {
+                const lat = latitude.value.replace(/,/, '.');
+                const lon = longitude.value.replace(/,/, '.');
                 const icon = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
                 const map = `https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=600&height=500&center=lonlat:${lon},${lat}&zoom=8&marker=lonlat:${lon},${lat};color:%23ff0000;size:medium&apiKey=7b128cd8393743309d239f6e08f5fa23`;
                 addWidget(weather, icon, map)
             })
             .catch(() => {
-                msg.textContent = "❗ Некорректные координаты. Убедитесь, что используете точку вместо запятой";
+                msg.textContent = "❗ Некорректные координаты. Попробуйте ещё раз.";
             });
         msg.textContent = "";
         form.reset();

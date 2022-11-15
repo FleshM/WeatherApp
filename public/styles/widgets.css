@@ -58,6 +58,7 @@
     margin-left: 5px;
     font-size: 20px;
     font-weight: 400;
+    text-align: center;
 }
 
 .widgets__wrapper {
@@ -86,14 +87,18 @@
     min-height: 240px;
     margin-top: 30px;
     border-radius: 30px;
+    overflow: hidden;
 }
 
 .widgets__map {
     max-width: 320px;
     border-radius: 30px;
     transition: opacity 0.3s ease;
+    transition: transform 1s ease;
+    display: block;
 }
 
 .widgets__map:hover {
     opacity: 75%;
+    transform: scale(1.2);
 }

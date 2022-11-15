@@ -1,6 +1,6 @@
-@import '/styles/interface.css';
-@import '/styles/widgets.css';
-@import '/styles/screens.css';
+@import './interface.css';
+@import './widgets.css';
+@import './screens.css';
 
 * {
   box-sizing: border-box;
